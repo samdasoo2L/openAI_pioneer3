@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="star.css" />
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">지역명 :</label>
+      <input type="text" id="name" name="name" />
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      $(document).ready(function () {
+        $("#myForm").submit(function (event) {
+          event.preventDefault();
+          var formData = {
+            name: $("#name").val(),
+          };
+          $.ajax({
+            type: "POST",
+            url: "/submit-form",
+            data: formData,
+            success: function (data) {
+              $("#result").html(data);
+            },
+            error: function () {
+              alert("Error submitting form.");
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
