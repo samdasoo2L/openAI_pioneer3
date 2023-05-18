@@ -1,0 +1,22 @@
+{
+  "name": "pt3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samdasoo2L/openAI_pioneer3.git"
+  },
+  "keywords": [
+    "openAI"
+  ],
+  "author": "samdasoo2L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samdasoo2L/openAI_pioneer3/issues"
+  },
+  "homepage": "https://github.com/samdasoo2L/openAI_pioneer3#readme"
+}
