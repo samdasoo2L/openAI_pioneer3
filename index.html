@@ -9,16 +9,35 @@
     <script src="https://code.jquery.com/jquery.min.js"></script>
   </head>
   <body>
-    <form id="myForm">
-      <label for="name">지역명 :</label>
-      <input type="text" id="name" name="name" />
-
-      <button type="submit">Submit</button>
+    <div class="title_set">
+      <div class="main_title">TV프로그램 AI 분석</div>
+      <div class="sub_title">AI가 제공하는 추천시스템</div>
+    </div>
+    <form class="myForm">
+      <label class="search_title" for="name">프로그램 이름</label>
+      <input
+        class="search_thing"
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="프로그램 이름을 작성해주세요."
+      />
+      <button class="search_button" type="submit">AI작동</button>
     </form>
-    <div id="result"></div>
+    <div class="ai_result">
+      <div class="result_name">프로그램의 내용(줄거리)</div>
+      <div class="result_1 result_thing"></div>
+      <hr />
+      <div class="result_name">프로그램의 장르</div>
+      <div class="result_2 result_thing"></div>
+      <hr />
+      <div class="result_name">유사 프로그램 추천</div>
+      <div class="result_3 result_thing"></div>
+    </div>
     <script>
       $(document).ready(function () {
-        $("#myForm").submit(function (event) {
+        $(".myForm").submit(function (event) {
           event.preventDefault();
           var formData = {
             name: $("#name").val(),
@@ -28,7 +47,9 @@
             url: "/submit-form",
             data: formData,
             success: function (data) {
-              $("#result").html(data);
+              $(".result_1").html(data[0]);
+              $(".result_2").html(data[1]);
+              $(".result_3").html(data[2]);
             },
             error: function () {
               alert("Error submitting form.");
